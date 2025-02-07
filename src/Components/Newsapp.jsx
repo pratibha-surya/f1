@@ -12,11 +12,16 @@ const Newsapp = () => {
 
     const getData = async () => {
         // Use the search term if available, otherwise use a default term
+       try {
         const query = search || 'latest'; // Default to 'latest' if no search term
         const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`);
         const jsonData = await response.json();
         console.log(jsonData.articles);
         setNewsData(jsonData.articles);
+       } catch (error) {
+        console.log("erro",error)
+        
+       }
     };
 
     const handleInput = (e) => {
@@ -26,7 +31,7 @@ const Newsapp = () => {
 
     useEffect(() => {
         getData();
-    }, []);
+    }, [API_KEY]);
 
     const userInput = (event) => {
         setSearch(event.target.value);
