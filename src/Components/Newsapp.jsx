@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Card from './Card'
 
 const Newsapp = () => {
-    const API_KEY="07a8e13150824e028193c9c3653fb1dd";
+    const API_KEY = import.meta.env.VITE_API_KEY;
+
+    // Log the API key to the console (for debugging purposes)
+    console.log(API_KEY, "key");
     const [search,setSearch]=useState()
     const[newsData,setnewData]=useState(null)
     const getData= async()=>{
