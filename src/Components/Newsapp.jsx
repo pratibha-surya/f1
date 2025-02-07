@@ -9,7 +9,8 @@ const Newsapp = () => {
     const [search,setSearch]=useState()
     const[newsData,setnewData]=useState(null)
     const getData= async()=>{
-        const respose=await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
+        // const respose=await fetch(`https://newsapi.org/v2/everything?q=${search}&apiKey=${API_KEY}`)
+         const respose=await fetch('https://newsapi.org/v2/everything?q=undefined&apiKey=07a8e13150824e028193c9c3653fb1dd')
         const jsondata=await respose.json()
         console.log(jsondata.articles )
         setnewData(jsondata.articles)
